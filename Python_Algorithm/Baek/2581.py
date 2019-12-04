@@ -8,6 +8,7 @@ for i in range(2,MAX):
         continue
     for j in range(i*2,MAX,i):
         arr[j] = 0
+
 prime = [i for i in range(M,N+1) if arr[i] == i]
 if len(prime) == 0:
     print(-1)
