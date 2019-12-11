@@ -16,10 +16,10 @@ def fib(A,n):
     return A
 
 N = int(input())
-result = fib(mat,N)
+result = fib(mat,N-1)
 if N ==0:
-    result[0][1] =0
-print(result[0][1])
+    result[1][0] = 0
+print(result[1][0]+result[1][1])
 
 
 '''import numpy as np
