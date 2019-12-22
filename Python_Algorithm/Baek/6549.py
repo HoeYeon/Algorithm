@@ -38,11 +38,11 @@ def query(idx,start,end,left,right):
 
 # 이제 그럼 query함수를 통해 구간에서 가장 작은 높이를 구할 수 있으니 넓이를 구하자
 def getMax(start,end):
-    h = query(0,0,li[0]-1,start,end)
-    print('h:',h)
+    h = query(0,1,li[0],start,end)
+    #print('h:',h)
     area = li[h] * (end-start+1)
-    print(area)
-    if start<=h-1:
+    #print(area)
+    if 0<start<=h-1:
         area = max(area,getMax(start,h-1))
     if end>=h+1:
         area = max(area,getMax(h+1,end))
@@ -58,7 +58,7 @@ while True:
     ## 2^(h+1)-1 과 같음
     tree_size = (1 << (h+1))-1
     tree = [0 for i in range(tree_size)]
-    tree[0] = 9999999999999999999
-    init(0,0,li[0]-1)
+    tree[0] = 999999999999999
+    init(0,1,li[0])
     print(tree)
-    print(getMax(0,li[0]-1))
+    print(getMax(1,li[0]))
