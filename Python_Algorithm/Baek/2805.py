@@ -11,7 +11,7 @@ while left <= right:
     cnt = 0
     for i in li:
         if i<=mid:
-            break
+            break   
         cnt += (i-mid)*c[i]
     if cnt >= M:
         left = mid+1
