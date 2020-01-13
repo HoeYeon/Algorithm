@@ -1,20 +1,23 @@
-import sys
-from math import log
-input = sys.stdin.readline
 import heapq
-
-heap = []
-
-N = int(input())
+import sys
+input = sys.stdin.readline
+minH=[]
+maxH=[]
+heapq.heapify(minH)
+heapq.heapify(maxH)
+n=int(input())
 result = ''
-for i in range(1,N+1):
-    tmp = int(input())
-    heapq.heappush(heap,tmp)
-    tt = heap[:]
-    thr = i//2-1 if i%2 ==0 else i//2
-    if i%2 ==0:
-        ans = min(tt[thr],tt[thr+1])
+while n:
+    m=int(input())
+    if len(minH)==len(maxH):
+        heapq.heappush(maxH,(-m,m))
     else:
-        ans = tt[thr]
-    result += str(ans) + '\n'
+        heapq.heappush(minH,m)
+    if (len(minH)!=0 and len(maxH)!=0) and maxH[0][1] > minH[0]:
+        a=heapq.heappop(maxH)[1]
+        b=heapq.heappop(minH)
+        heapq.heappush(minH,a)
+        heapq.heappush(maxH,(-b,b))
+    result += str(maxH[0][1]) + '\n'
+    n-=1
 print(result)
