@@ -3,19 +3,19 @@ input = sys.stdin.readline
 
 def square(x,y):
     return (x//3)*3 + (y//3)
-# def isOk(arr,x,y,val):
-#     ## row&col check
-#     for i in range(9):
-#         if arr[i][y] == val or arr[x][i] == val:
-#             return False
+def isOk(arr,x,y,val):
+    ## row&col check
+    for i in range(9):
+        if arr[i][y] == val or arr[x][i] == val:
+            return False
 
-#     ## box check
-#     x_,y_ = x//3 * 3, y//3 * 3
-#     for i in range(x_,x_+3):
-#         for j in range(y_,y_+3):
-#             if arr[i][j] == val:
-#                 return False
-#     return True
+    ## box check
+    x_,y_ = x//3 * 3, y//3 * 3
+    for i in range(x_,x_+3):
+        for j in range(y_,y_+3):
+            if arr[i][j] == val:
+                return False
+    return True
 
 def dfs(arr,i):
     if i == len(zero):
