@@ -1,10 +1,16 @@
 import sys
-from collections import OrderedDict
 input = sys.stdin.readline
-N,M = map(int,input().split())
-pokemon = OrderedDict({input()[:-1]:i for i in range(N)})
-re = ''
-for j in range(M):
-    tmp = input()[:-1]
-    re += list(pokemon.items())[int(tmp)-1][0]+'\n' if tmp.isdigit() else str(pokemon[tmp]+1) + '\n'
+n, m = map(int, input().split())
+pkmn = [] 
+pkmn_dic = {} 
+ 
+for i in range(n) :    
+    pk = input()[:-1]
+    pkmn.append(pk)
+    pkmn_dic[pk] = i + 1
+ 
+re =''
+for _ in range(m): 
+    query = input()[:-1]
+    re += pkmn[int(query)-1] + '\n' if query.isdigit() else str(pkmn_dic[query]) + '\n'
 print(re)
