@@ -22,8 +22,6 @@ def dfs(arr, size, count, x, y, check):
             ans = max(ans, tmp + arr[x1][y1]+arr[x2][y2]+arr[x3][y3])
 
     for i in range(4):
-        if size == 0 and (i == 1):
-            continue
         _x = go[i][0]
         _y = go[i][1]
         if 0 <= x+_x < N and 0 <= y+_y < M and check[x+_x][y+_y] == 0:
