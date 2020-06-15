@@ -7,16 +7,19 @@ class Node:
 class LinkedListStack:
     def __init__(self):
         self.top = Node()
+        self.size = 0
 
     def push(self, data):
         node = Node()
         node.data = data
         node.next = self.top.next
         self.top.next = node
+        self.size += 1
 
     def pop(self):
         data = self.top.next.data
         self.top.next = self.top.next.next
+        self.size -= 1
         return data
 
     def getTop(self):
