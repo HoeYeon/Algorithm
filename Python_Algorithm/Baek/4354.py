@@ -22,6 +22,8 @@ while True:
     if s == ".":
         break
     pi = getPI(s)
+    # 마지막에 반복되는 문자열 제곱수가 부분으로 있을때 처리
+    # ex) abcabcab --> 실패함수는 값을 가지고 있지만 1이 되어야함
     if pi[len(s) - 1] % (len(s) - pi[len(s) - 1]):
         ans += "1\n"
     else:
